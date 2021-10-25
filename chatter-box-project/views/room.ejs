@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter Box Private</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+</head>
+<body>
+    <nav>
+        <h1><a class="chatter-box-logo" href="/">Chatter Box</a></h1>
+        <ul>
+            <% if (user) { %>
+            <a href="/details/<%= user._id %>" class="view-profile-btn">View Profile</a>
+            <li><a class="logout-btn" href="/logout">Log out</a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+    <div class="private-room-container">
+        <div class="private-sidebar">
+            <img src="/268598.png" alt="user icon">
+            <div class="private-scroll">
+                <div class="private-accordion">
+                </div>
+            </div>  
+        </div>
+
+        <div class="chat-box-container">
+            <div class="msg-disp">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+            <div class="text-box">
+                <div class='fields'>
+                    <input type="text" name="room" id="private" value="private" hidden="true"/>
+                    <input type="text" name="name" id="name" value="<%= user.name %>" hidden="true"/>
+                    <input type="text" class="msg-input" id="message" placeholder="message...">
+                    <button id="send" class="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>Copyright 2021 Chatter Box.</footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+    <script src="/chat.js"></script>
+</body>
+</html>

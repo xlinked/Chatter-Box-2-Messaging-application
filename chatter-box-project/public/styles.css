@@ -1,0 +1,552 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: #130f40;
+  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+}
+/* **** Nav bar **** */
+.chatter-box-logo {
+  font-size: 32px;
+  padding: 10px;
+  border: 2px solid blue;
+}
+ul, li, a {
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  color:rgb(175, 238, 238);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 30px 50px;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none; 
+}
+nav li {
+  margin-left: 20px;
+}
+nav li a {
+  font-weight: 700;
+  font-size: 16px;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #fff;
+}
+.view-profile-btn, .login-btn {
+  font-size: 12px;
+  padding: 5px;
+  width: 70px;
+  background: blue;
+  border: 1px solid #fff;
+  border-radius: 20%;
+  text-align: center;
+}
+.view-profile-btn:hover, .login-btn:hover {
+  background: #fff;
+  border: 1px solid blue;
+  color: blue;
+}
+.logout-btn, .signup-btn {
+  font-size: 12px;
+  padding: 5px;
+  width: 70px;
+  background: rgba(255, 0, 0, 0.637);
+  border: 1px solid #fff;
+  border-radius: 20%;
+  text-align: center;
+}
+.logout-btn:hover, .signup-btn:hover {
+  background: #fff;
+  color:rgba(255, 0, 0, 0.637);
+  border: 1px solid rgba(255, 0, 0, 0.637);
+}
+/* **** END of Nav bar **** */
+
+
+/* **** Main Chat room page **** */
+.chatroom-container {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto; 
+}
+.side-bar {
+  display: block;
+  position: relative;
+  border: 1px solid #fff;
+  width: 240px;
+  height: 500px;
+  margin-left: 25px;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  float: left;
+}
+/* *** chat-bubble *** */
+.bubble {
+  margin-left: 15px;
+  max-width: 90%;
+  min-width: 6%;
+  display: inline-block;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  width: auto;
+  border: 2px solid blue;
+  background: transparent;
+  border-radius: 15px 15px 15px 2px;
+  padding: 5px;
+  text-align: left;
+  color: #fff;
+  clear: both;
+  opacity: 90%;
+}
+/* Username name about message*/
+.msg-username {
+  font-size: 6px !important;
+  color: grey;
+}
+
+/* *** Side Bar *** */
+/* Horizontal scroll */
+.online {
+  overflow: hidden;
+  overflow-x: scroll;
+  font-family: monospace;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.online::-webkit-scrollbar {
+  display: none;
+}
+.horizon-carousel-container {
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: .5px solid #d3d3d394;
+  outline: none;
+  transition: 0.4s;
+  font-size: 12px;
+  margin: 5px; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.online-username-parent {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x;
+}
+.online-circle {
+  height: 70px;
+  width: 70px;
+  line-height: 25px;
+  margin-left: 5px;
+  border: 2px solid blue;
+  border-radius: 100%;
+  display: inline-block;
+  color: white;
+  text-align: center;
+}
+.online-circle span {
+  display: inline-block;
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+.online-name {
+  text-align: center;
+  margin: 0 auto;
+  padding: 3px 0;
+}
+
+.online-users-parent {
+  margin: 0 5px;
+}
+.horizon-carousel-container:hover{
+  color:#000;
+}
+.horizon-carousel-container .online-circle:hover {
+  border: 2px solid #fff;
+  color: blue;
+}
+/* User search input */
+#userSearch {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Vertical Scroll All users in DB */
+.scroll {
+  height: 63%;
+  overflow-y: scroll;
+  font-family: monospace;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  display: flex;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: .5px solid #d3d3d394;
+  outline: none;
+  transition: 0.4s;
+  font-size: 12px;
+  margin: 0 5px; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Users first initial */
+.letter {
+  margin: 0 10px;
+  height: 60px;
+  width: 60px;
+  border: 2px solid blue;
+  border-radius: 50%;
+  display: inline-block;
+  color: white;
+}
+.accordion .letter:hover {
+  display: inline;
+  border: 2px solid #fff;
+  color: blue;
+}
+.letter span {
+  display: inline-block;
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 34px;
+}
+.accordion p span {
+  font-size: 15px;
+  color: #fff;
+}
+.accordion p {
+  font-size: 12px;
+  color: #d3d3d394;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  border: 2px solid blue;
+}
+.accordion:hover{
+  color:#000;
+}
+/* Quick view of user details. Note: hidden by default */
+.panel {
+  display: flex;
+  padding: 0 15px 5px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: #fff;
+  font-size: 12px;
+  line-height: 15px;
+  border: none;
+}
+.panel p {
+  color: white;
+}
+/* View profile link in panel */
+.details-link {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  font-weight: bold;
+  border: 1px solid blue;
+  float: left;
+}
+/* Private chat link in panel */
+.details-link2 {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  font-weight: bold;
+  border: 1px solid blue;
+  float: right;
+}
+/* **** END of Side Bar **** */
+
+/* For Bth Rooms */
+.chat-box-container {
+  font-family: monospace;
+  width: 500px;
+  height: 440px;
+  padding: 30px;
+  margin-right: 25px;
+  float: right;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  background-color: black;
+  border: 1px solid #fff;
+}
+.chat-box-container input {
+  background-color: transparent;
+  width: 100%;
+  color: #fff;
+}
+/* message input for private room */
+.chat-box-container .msg-input {
+  width: 93%;
+  background-color: #000;
+  color: #fff;
+}
+
+.msg-disp {
+  font-family: monospace;
+  margin: 0 auto;
+  height: 220px;
+  padding: 30px;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  background-color: #000;
+  border: 1px solid #fff;
+  overflow: hidden;
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+
+.text-box {
+  font-family: monospace;
+  width: auto;
+  margin: 0 auto;
+  padding: 30px;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  background-color: black;
+  border: 1px solid #fff;
+}
+
+/* Signup / Login / Update forms */
+.form-edit, .form-login, .form-signup {
+  font-family: monospace;
+  width: 280px;
+  margin: 0 auto;
+  padding: 30px;
+  color: #fff;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  background-color: #0abcf9;
+  background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+}
+.form-edit h2, .form-login h2, .form-signup h2 {
+  font-family: monospace;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  color: #fff;
+}
+label {
+  display: block;
+  margin: 20px 0 10px;
+}
+input {
+  font-family: monospace;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  width: 100%;
+  color: #000;
+}
+
+/* login, signup, edit button */
+.login-signup {
+  margin-top: 20px;
+  font-size: 13px;
+  height: 40px;
+  width: 80px;
+  background-color: blue;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 20%;
+}
+.error {
+  font-family: monospace;
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* **** End of Signup / Login / Update forms **** */
+
+/* **** Private Chat Page ***** */
+
+.private-room-container {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto; 
+}
+.private-sidebar {
+  display: block;
+  position: relative;
+  border: 1px solid #fff;
+  width: 240px;
+  height: 500px;
+  margin-left: 25px;
+  -webkit-box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36); 
+  box-shadow: 5px 5px 42px 0px rgba(0,234,255,0.36);  border-radius: 10px;
+  float: left;
+}
+.private-room-container img{
+  display: flex;
+  height: 200px;
+  width: auto;
+  margin: 0 auto;
+}
+/* Vertical Scroll All users in DB */
+.private-scroll {
+  height: 59%;
+  overflow-y: scroll;
+  font-family: monospace;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.private-scroll::-webkit-scrollbar {
+  display: none;
+}
+.private-accordion {
+  display: inline-block;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: #fff;
+  width: 240Rpx;
+  border-bottom: .5px solid #d3d3d394;
+  margin: 6px auto; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.private-accordion .letter:hover {
+  display: inline;
+  border: 2px solid #fff;
+  color: blue;
+}
+
+.private-accordion p {
+  font-size: 15px;
+  color: #fff;
+}
+
+.private-accordion:hover{
+  color:#000;
+}
+.private-online-name {
+  display: inline-block;
+  text-align: left;
+  padding: 0 10px 20px;
+}
+.name-contain {
+  border: 1px solid blue;
+}
+
+.private-online-circle {
+  height: 70px;
+  width: 70px;
+  line-height: 10px;
+  margin: 7px 0 2px 5px;
+  border: 2px solid blue;
+  border-radius: 100%;
+  display: inline-block;
+  color: white;
+}
+.private-online-circle span {
+  display: inline-block;
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.send-btn {
+  margin-top:20px;
+  width: 75px;
+  background-color: blue;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 20%;
+}
+/* END of Private Room Chat */
+
+/* **** Personal Profile page **** */
+.user-details img {
+  display: block;
+  height: 230px;
+  width: auto;
+  margin: 0 auto;
+}
+.user-details {
+  font-size: 18px;
+  display: block;
+  border-radius: 20px;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  position: relative;
+  text-align: center;
+  width: 300px;
+  height: 440px;
+  padding: 0 20px 20px;
+  margin: 0 auto;
+}
+.user-details h4, p {
+  color: #fff;
+  text-align: left;
+}
+.delete {
+  position: relative;
+  float: right;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 35px;
+  font-weight: bold;
+}
+#trash {
+  height: 40px;
+  width: auto;
+  padding: 5px;
+  border: 2px solid blue;
+}
+.edit {
+  position: relative;
+  float: left;
+  text-align: left;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 35px;
+  font-weight: bold;
+  border: 2px solid blue;
+  padding: 5px;
+}
+footer {
+  text-align: center;
+  color: #aaa;
+  margin: 30px 0;
+}

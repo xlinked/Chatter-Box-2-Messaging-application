@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=”Author” content="Tyler Nelson">
+  <title>Chatter Box Profile</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <h1><a href="/" class="chatter-box-logo">Chatter Box</a></h1>
+    <ul>
+        <li class="name"><%= user.name %></li>
+        <li><a href="/logout" class="logout-btn">Log out</a></li>
+    </ul>
+  </nav>
+
+  <div class="user-details">
+    <img src="/268598.png" alt="user icon">
+    <p><span>Name:</span> <%= user.name %></p>
+    <p><span>Phone:</span> <%= user.phone %></p>
+    <p><span>Email:</span> <%= user.email %></p>
+    <a class="delete" data-doc="<%= user._id %>">
+      <img id="trash" src="/trash.png" alt="trashcan icon">
+    </a>
+    <a class="edit" href="/edit/<%= user._id %>">Edit</a>
+  </div>                         
+
+<footer>Copyright 2021 Chatter Box.</footer>
+
+<script>
+  const trashcan = document.querySelector("a.delete");
+
+  trashcan.addEventListener('click', (e) => {
+    var result = confirm("Confirm to Permanently delete your profile?");
+    if (result) {
+      const endpoint = `/delete/${trashcan.dataset.doc}`;
+      location.assign('/login');
+
+      fetch(endpoint, {
+          method: 'delete'
+      })
+      .then((response) => response.json())
+      .then((data) => window.location.href = data.redirect())
+      .catch(err => console.log(err));
+    };
+  });
+</script>
+</body>
+</html>
