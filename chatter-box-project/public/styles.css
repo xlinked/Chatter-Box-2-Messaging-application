@@ -1,0 +1,853 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa&family=Courgette&family=Exo&family=Genos:wght@500&family=Krona+One&family=Old+Standard+TT:ital@1&family=Rokkitt:wght@500&family=Syncopate:wght@700&display=swap');
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #537895;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width:319px)  { 
+  /* smartphones, iPhone, portrait 480x320 phones */ 
+  /* Header */
+  header {
+    height: 6em;
+    width: 100%;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+  }
+  .logo {
+    margin: auto;
+    border: 2px solid rgb(175, 238, 238);
+    padding: 10px;
+    position: absolute;
+    left: 0;
+  }
+  .logo a {
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    color:rgb(175, 238, 238);
+    font-size: 1.5em;
+  }
+  nav {
+    position: absolute;
+    right: 10px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+  }
+  header nav a:first-child {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  header nav a:last-child {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  header nav a {
+    text-decoration: none;
+    font-family: 'Krona One', sans-serif;
+    color:rgb(175, 238, 238);
+    font-size: 1em;
+    margin: 5px 0;
+    text-decoration: none;
+  }
+
+  .view-profile-btn, .login-btn {
+    font-family: 'Krona One', sans-serif;
+    font-size: 1em;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20%;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000000;
+  }
+  .view-profile-btn:hover, .login-btn:hover {
+    background: #fff;
+    color:#000000;
+  }
+  .logout-btn, .signup-btn {
+    font-size: 1em;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 20%;
+    text-align: center;
+    color:rgb(175, 238, 238);
+    box-shadow: 0 0 10px 0 #000000;
+
+  }
+  .logout-btn:hover, .signup-btn:hover {
+    background: #fff;
+    color:#000000;
+    border: 1px solid rgba(255, 0, 0, 0.637);
+  }
+  /* END Header */
+
+
+  /* Signup / Login / Edit forms */
+  #login-container {
+    height: 30em;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .form-edit, .form-login, .form-signup {
+    font-family: 'Krona One', sans-serif;
+    height: auto;
+    min-height: 450px;
+    width: auto;
+    margin: 20px;
+    padding: 30px;
+    color: #fff;
+    box-shadow: 0 0 15px 0px #000000;  
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  .form-edit h2, .form-login h2, .form-signup h2 {
+    font-family: 'Krona One', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #fff;
+  }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+  }
+  input {
+    font-family: monospace;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    color: #000;
+  }
+
+  /* login, signup, edit button */
+  .login-signup {
+    margin-top: 20px;
+    font-size: 13px;
+    height: 40px;
+    width: 80px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #000000;
+    border-radius: 20%;
+    box-shadow: 0 0 15px 0 #000000;
+  }
+  .login-signup:hover {
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 15px 0 #fff;
+
+  }
+  .error {
+    font-family: monospace;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  /* End of Signup / Login / Edit forms */
+
+
+  /* Profile page */
+  #details-container {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+  .user-details img {
+    display: block;
+    height: 230px;
+    width: auto;
+    margin: 0 auto;
+  }
+  .user-details {
+    font-size: 1.2em;
+    display: block;
+    border-radius: 20px;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    position: relative;
+    text-align: center;
+    width: auto;
+    height: 550px;
+    margin: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0 15px 0 #000000;
+  }
+  .user-details h4, p {
+    color: #fff;
+    text-align: left;
+  }
+  .delete {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-size: 1.4em;
+  }
+  #trash {
+    height: 50px;
+    width: auto;
+    padding: 5px;
+  }
+  .edit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+  }
+  /* End profile page */
+
+
+
+  /* Main Chat room page */
+  .chatroom-container {
+    display: block;
+    width: auto;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+  .side-bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: #000000;
+    box-shadow: 0 0 15px 0 #000000;  
+    border-radius: 10px;
+  }
+  /* *** chat-bubble *** */
+  .bubble {
+    margin-left: 15px;
+    max-width: 90%;
+    min-width: 6%;
+    display: inline-block;
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 1.5em;
+    line-height: 20px;
+    width: auto;
+    border: 2px solid blue;
+    background: transparent;
+    border-radius: 15px 15px 15px 2px;
+    padding: 5px;
+    text-align: left;
+    color: #fff;
+    clear: both;
+    opacity: 90%;
+  }
+  /* Username name about message*/
+  .msg-username {
+    font-size: .8em;
+    color: #aaa;
+    margin-left: 15px;
+  }
+
+  /* *** Side Bar *** */
+  /* Horizontal scroll */
+  .online {
+    overflow: hidden;
+    overflow-x: scroll;
+    font-family: monospace;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .online::-webkit-scrollbar {
+    display: none;
+  }
+  .horizon-carousel-container {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: .5px solid #d3d3d394;
+    outline: none;
+    transition: 0.4s;
+    font-size: 12px;
+    margin: 5px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .online-username-parent {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x;
+  }
+  .online-circle {
+    height: 70px;
+    width: 70px;
+    line-height: 25px;
+    margin-left: 5px;
+    border: 2px solid blue;
+    border-radius: 100%;
+    display: inline-block;
+    color: white;
+    text-align: center;
+  }
+  .online-circle span {
+    display: inline-block;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+  }
+  .online-name {
+    text-align: center;
+    margin: 0 auto;
+    padding: 3px 0;
+  }
+
+  .online-users-parent {
+    margin: 0 5px;
+  }
+  .horizon-carousel-container:hover{
+    color:#000;
+  }
+  .horizon-carousel-container .online-circle:hover {
+    border: 2px solid #fff;
+    color: blue;
+  }
+  /* User search input */
+  #userSearch {
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Vertical Scroll All users in DB */
+  .scroll {
+    height: 100%;
+    overflow-y: scroll;
+    font-family: monospace;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scroll::-webkit-scrollbar {
+    display: none;
+  }
+  /* Style the buttons that are used to open and close the accordion panel */
+  .accordion {
+    display: flex;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: .5px solid #d3d3d394;
+    outline: none;
+    transition: 0.4s;
+    font-size: 12px;
+    margin: 0 5px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  /* Users first initial */
+  .letter {
+    margin: 0 10px;
+    height: 60px;
+    width: 60px;
+    border: 2px solid blue;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+  }
+  .accordion .letter:hover {
+    display: inline;
+    border: 2px solid #fff;
+    color: blue;
+  }
+  .letter span {
+    display: inline-block;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 34px;
+  }
+  .accordion p span {
+    font-size: 15px;
+    color: #fff;
+  }
+  .accordion p {
+    font-size: 12px;
+    color: #d3d3d394;
+  }
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    border: 2px solid blue;
+  }
+  .accordion:hover{
+    color:#000;
+  }
+  /* Quick view of user details. Note: hidden by default */
+  .panel {
+    display: flex;
+    padding: 0 15px 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: #fff;
+    font-size: .8em;
+    line-height: 15px;
+    border: none;
+    position: relative;
+  }
+  .panel p {
+    color: white;
+  }
+  /* View profile link in panel */
+  .details-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Krona One', sans-serif;
+    font-size: 1em;
+    padding: 5px;
+    color:rgb(175, 238, 238);
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20%;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000000;
+    text-decoration: none;
+  }
+  /* Private chat link in panel */
+  .details-link2 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    font-family: 'Krona One', sans-serif;
+    font-size: 1em;
+    padding: 5px;
+    color:rgb(175, 238, 238);
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20%;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000000;
+    text-decoration: none;
+  }
+  /* **** END of Side Bar **** */
+
+
+  /* Private room */
+  .private-room-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    height: auto;
+    width: 100%;
+    margin: 0 auto; 
+    background-color: transparent;
+  }
+  .private-sidebar {    
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 104px;
+    margin: 0;
+  }
+  .private-chat-box-container {
+    height: 100%;
+    min-height: 468px;
+    width: 100%;
+    position: relative;
+    background-color: red;
+  }
+  .msg-disp-1 {
+    min-height: 168px;
+    height: 436px;
+    width: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    overflow-y: scroll;
+    word-wrap: break-word;
+  }
+  .text-box-1 {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    font-family: monospace;
+    background-color: #000000;
+    border-top: 1px solid #fff;
+  }
+  
+  /* message input box for private room */
+  .private-room-container .msg-input {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 60%;
+    color: #000000;
+  }
+  
+  /* private message send button */
+  .private-send-btn {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 75px;
+    background-color: blue;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 20%;
+  }
+
+
+  .private-sidebar img {
+    display: none;
+  }
+  /* Vertical/Horizontal Scroll All users in DB */
+  .private-scroll {
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    font-family: monospace;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .private-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .private-accordion {
+    display: flex;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .private-accordion p {
+    font-size: .7em;
+    color: #fff;
+    text-align: center;
+  }
+  
+  
+  /* End private room */
+
+  footer {
+    display: none;
+    position: relative;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    color: #aaa;
+  }
+  footer p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width:481px)  { 
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+  /* Header */
+  .logo {
+    position: absolute;
+    left: 0;
+  }
+  nav {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  /* Login/signup/edit form */
+  .form-edit, .form-login, .form-signup {
+    height: 100%;
+    width: 25em;
+    margin: 50px auto;
+  }
+  /* Profile page */
+  #details-container {
+    width: 50%;
+    margin: 20px auto;
+  }
+
+
+  /* Main Chat Room */
+  .chatroom-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 45% 55%;
+    height: 500px;
+    width: auto;
+    margin: 20px;
+    justify-content: center;
+    box-shadow: 0 0 15px 0 #000000;
+  }
+  .side-bar {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background-color: #000000;
+  }
+  .chat-box-container {
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-template-columns: auto;
+    font-family: monospace;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    box-shadow: 0 0 15px 0 #000000;
+
+  }
+  .msg-disp {
+    grid-row: 1;
+    grid-column: 1;
+    font-family: monospace;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    overflow-y: scroll;
+    word-wrap: break-word;
+  }
+  .text-box {
+    display: none;
+    grid-row: 2;
+    grid-column: 1;
+    font-family: monospace;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    position: relative;
+  }
+  .chat-box-container input {
+    position: absolute;
+    width: 60%;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #fff;
+  }
+  .send-btn {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 75px;
+    background-color: blue;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 20%;
+  }
+
+  /* Private Chat Room */
+  .private-room-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 40% 60%;
+    height: 650px;
+    width: auto;
+    margin: 20px;
+    justify-content: center;
+    box-shadow: 0 0 15px 0 #000000;  
+  }
+  .private-sidebar {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: #000000;
+  }
+  .private-chat-box-container {
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-template-columns: auto;
+    font-family: monospace;
+    width: 100%;
+    height: auto;
+    background-color: black;
+  }
+  .msg-disp-1 {
+    grid-row: 1;
+    grid-column: 1;
+    font-family: monospace;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    overflow-y: scroll;
+    word-wrap: break-word;
+  }
+  .text-box-1 {
+    grid-row: 2;
+    grid-column: 1;
+    font-family: monospace;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    background-color: black;
+    position: relative;
+  }
+  /* message input box for private room */
+  .private-room-container .msg-input {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60%;
+    color: #000000;
+  }
+
+  .private-room-container img{
+    display: flex;
+    height: 200px;
+    width: auto;
+    margin: 0 auto;
+  }
+  /* Vertical Scroll All users in DB */
+  .private-scroll {
+    height: 70%;
+    overflow-y: scroll;
+    font-family: monospace;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .private-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .private-accordion {
+    display: inline-block;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    color: #fff;
+    width: 100%;
+    border-bottom: .5px solid #d3d3d394;
+    margin: 6px auto; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .private-accordion p {
+    font-size: 1em;
+    color: #fff;
+  }
+  .name-contain {
+    border: 1px solid blue;
+  }
+  /* End Private Chat Room */
+
+  /* Profile page */
+  #details-container {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+  .user-details {
+    font-size: 1.2em;
+    display: block;
+    border-radius: 20px;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    position: relative;
+    text-align: center;
+    width: 400px;
+    height: 550px;
+    margin: 100px auto;
+    padding: 0 20px;
+    box-shadow: 0 0 15px 0 #000000;
+  }
+  .fields-mobile {
+    display: none;
+  }
+  .text-box {
+    display: inline;
+  }
+}
+
+@media (min-width:641px)  { 
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+  /* Private Chat Room */
+  .private-room-container {
+    max-height: 630px;
+    height: 900px;
+  }
+  /* Main Chat Room */
+  .chatroom-container {
+    max-height: 460px;
+    height: 725px;
+  }
+}
+
+@media (min-width:961px)  { 
+  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+  /* Private Chat Room */
+  .private-room-container {
+    max-width: 80%;
+    margin: 20px auto;
+  }
+  /* Vertical Scroll All users in DB */
+  .private-scroll {
+    height: 67%;
+    overflow-y: scroll;
+  }
+  /* Main Chat Room */
+  .chatroom-container {
+    max-width: 80%;
+    margin: 20px auto;
+  }
+}
+
+@media (min-width:1025px) { 
+  /* big landscape tablets, laptops, and desktops */ 
+  /* Private Chat Room */
+  .private-room-container {
+    max-width: 70%;
+  }
+  /* Main Chat Room */
+  .chatroom-container {
+    max-width: 70%;
+  }
+}
+
+@media (min-width:1281px) { 
+  /* hi-res laptops and desktops */ 
+  /* Private Chat Room */
+  .private-room-container {
+    max-width: 40%;
+  }
+  /* Main Chat Room */
+  .chatroom-container {
+    max-width: 40%;
+  }
+}
+

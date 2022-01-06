@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=”Author” content="Tyler Nelson">
+  <title>Chatter Box</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">Chatter Box</a>
+    </div>
+    <nav>
+      <a class="logout-btn" href="/logout">Log out</a>
+    </nav>
+  </header>
+
+  <div id="details-container">
+    <div class="user-details">
+      <img src="/268598.png" alt="user icon">
+      <p><span>Name:</span> <%= user.name %></p>
+      <p><span>Phone:</span> <%= user.phone %></p>
+      <p><span>Email:</span> <%= user.email %></p>
+    </div> 
+  </div>
+
+  <%- include('partials/footer'); -%>

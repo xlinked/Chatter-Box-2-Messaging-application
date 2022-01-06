@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=”Author” content="Tyler Nelson">
+  <title>Chatter Box</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">Chatter Box</a>
+    </div>
+    <nav>
+        <% if (user) { %>
+          <a href="/details/<%= user._id %>" class="view-profile-btn">Profile</a>
+          <a class="logout-btn" href="/logout">Log out</a>
+        <% } else { %>
+          <a href="/login" class="login-btn">Log in</a>
+          <a href="/signup" class="signup-btn">Sign up</a>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="chatroom-container">
+    <div class="side-bar">
+      <div class="horizon-carousel-container">
+        <div class="online">
+          <div class="online-username-parent">
+            <div class="online-circle">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input id="userSearch" type="text" name="search" placeholder="Search...">
+      </div>
+
+      <div class="scroll">
+          <% if (users.length > 0) { %>
+          <% users.forEach(user => { %>
+            <div class="accordion">
+              <div class="letter">
+                <span>
+                  <%= user.name[0].substring(0, 1)%>
+                </span>
+              </div>
+              <p><span><%= user.name %></span>
+              </br><%= user.messages.slice(-1) %></p>
+            </div>
+            <div class="panel">
+              <h2>About</h2>
+              <p><span>Name:</span> <%= user.name %></p>
+              <p><span>Phone:</span> <%= user.phone %></p>
+              <p><span>Email:</span> <%= user.email %></p>
+              <a class="details-link" href="/private/<%= user._id %>">View Profile</a>
+              <a class="details-link2" href="/room">Private Chat</a>
+            </div>
+          <% }) %>
+          <% }; %>
+      </div>
+    </div>
+
+    <div class="chat-box-container">
+      <div class="msg-disp">
+        <div id="output"></div>
+        <div id="feedback"></div>
+      </div>
+
+      <div class="text-box">
+        <form class="fields" action="/text/:id" method="post">
+          <input type="text" name="room" id="news-feed" value="news-feed" hidden="true"/>
+          <input type="text" name="name" id="name" value="<%= user.name %>" hidden="true"/>  
+          <input type="text" class="main-msg-input" id="message" name="messages" value="" placeholder="message..." autocomplete="off">
+          <button  id="send" class="send-btn" type="submit" value="send">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+
+<script>
+  //To get HTML elements
+const username = document.getElementById('name').value;
+const roomname = document.getElementById('news-feed').value;
+const output = document.getElementById('output');
+const message = document.getElementById('message');
+const feedback = document.getElementById('feedback');
+const users = document.querySelector('.online-username-parent');
+
+//Socket server URL
+const socket = io.connect('http://localhost:3000');
+
+//Emitting username and roomname of newly joined user to server
+socket.emit('joined-user', {
+  username: username,
+  roomname: roomname
+})
+
+//This function is called in the form.eventListener. 
+//Sends username, & message using socket connection.
+function myFunction() {
+  socket.emit('chat', {
+    username: username,
+    message: message.value,
+    roomname: roomname
+  })
+  message.value = '';
+}
+
+//Sending username if the user is typing
+message.addEventListener('keypress', () => {
+  socket.emit('typing', {username: username, roomname: roomname})
+})
+
+//Displaying the message sent from user
+socket.on('chat', (data) => {
+  output.innerHTML += '<p class="msg-username">' + data.username + '<br>' + '<span class="bubble">' + data.message + '</span>' + '</p>';
+  feedback.innerHTML = '';
+  document.querySelector('.msg-disp').scrollTop = document.querySelector('.msg-disp').scrollHeight;
+})
+
+//Displaying if a user is typing
+socket.on('typing', (user) => {
+  feedback.innerHTML = '<p><em>' + user + ' is typing...</em></p>';
+})
+
+//Displaying online users
+socket.on('online-users', (data) =>{
+    users.innerHTML = ''
+    data.forEach(user => {
+      users.innerHTML += '<div class="online-users-parent">' + '<div class="online-circle">' + '<span>Online</span>' + '</div>' + '<br>' + `<p class="online-name">${user}</p>` + '</div>'
+    });
+})
+</script>
+
+<script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // get values
+    const messages = form.messages.value;
+
+    try {
+      const res = await fetch("/text/<%= user._id %>", { 
+        method: 'POST', 
+        body: JSON.stringify({ messages }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.user) {
+        myFunction();
+        console.log("Success");
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+});
+</script>
+
+<script>
+  var objDiv = document.getElementsByClassName("side-bar");
+  objDiv.scrollTop = objDiv.scrollHeight;
+</script>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between adding and removing the "active" class,
+      to highlight the button that controls the panel */
+      this.classList.toggle("active");
+
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+</script>
+</body>
+</html>

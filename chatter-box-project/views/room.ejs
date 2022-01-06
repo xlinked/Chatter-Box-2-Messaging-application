@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter Box Private</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="/">Chatter Box</a>
+        </div>
+        <nav>
+            <% if (user) { %>
+              <a href="/details/<%= user._id %>" class="view-profile-btn">Profile</a>
+              <a class="logout-btn" href="/logout">Log out</a>
+            <% } else { %>
+                <a class="logout-btn" href="/logout">Log out</a>
+                <% } %>
+        </nav>
+    </header>
+    
+    <div class="private-room-container">
+        <div class="private-sidebar">
+            <img src="/268598.png" alt="user icon">
+            <div class="private-scroll">
+                <div class="private-accordion">
+                </div>
+            </div>  
+        </div>
+
+        <div class="private-chat-box-container">
+            <div class="msg-disp-1">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+            
+            <div class="text-box-1">
+                <div class='fields'>
+                    <input type="text" name="room" id="private" value="private" hidden="true"/>
+                    <input type="text" name="name" id="name" value="<%= user.name %>" hidden="true"/>
+                    <input type="text" class="msg-input" id="message" placeholder="message...">
+                    <button id="send" class="private-send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer'); -%>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+    <script src="/chat.js"></script>
+</body>
+</html>

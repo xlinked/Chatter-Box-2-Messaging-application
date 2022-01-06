@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=”Author” content="Tyler Nelson">
+  <title>Chatter Box</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">Chatter Box</a>
+    </div>
+    <nav>
+        <% if (user) { %>
+          <a href="/details/<%= user._id %>" class="view-profile-btn">View Profile</a>
+          <a class="logout-btn" href="/logout">Log out</a>
+        <% } else { %>
+          <a href="/login" class="login-btn">Log in</a>
+          <a href="/signup" class="signup-btn">Sign up</a>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+  
+  
