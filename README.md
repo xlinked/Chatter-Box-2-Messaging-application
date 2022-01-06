@@ -6,7 +6,7 @@ Chat Application
 ReadME
 
 Completed By: Tyler Nelson
-Date: October 25, 2021 
+Date: October 25, 2021/Updated Jan 2, 2022
 Languages used: Node.js, express.js, Mongoose, EJS, Mongodb, socket, HTML/CSS
 
 Connecting to Database
